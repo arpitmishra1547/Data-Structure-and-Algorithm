@@ -1,0 +1,101 @@
+2️⃣ Reverse Words in a String (StringBuilder, trimming, splitting)
+
+Question:
+Given a string s with words separated by spaces, reverse the order of words.
+Remove extra spaces (no leading/trailing, only one space between words).
+
+Input: " hello world "
+
+Output: "world hello"
+
+Try to do:
+
+First using split() and StringBuilder
+
+Then think: how would you do it without using split? (in-place style like LeetCode)
+
+Concepts revised:
+
+trim()
+
+split(" +") or split("\\s+")
+
+StringBuilder.append(), insert()
+
+Immutability of String vs efficient building with StringBuilder
+
+3️⃣ Valid Anagram (frequency counting, arrays, HashMap)
+
+Question:
+Given two strings s and t, return true if t is an anagram of s (same letters, same counts; order does not matter).
+
+Input: s = "anagram", t = "nagaram" → true
+
+Input: s = "rat", t = "car" → false
+
+Assume lowercase a–z only for first version.
+Then think: how to handle Unicode / any character?
+
+Concepts revised:
+
+Character frequency using:
+
+int[] freq = new int[26]; (c - 'a')
+
+OR HashMap<Character, Integer>
+
+toCharArray()
+
+Arrays.equals()
+
+4️⃣ Longest Substring Without Repeating Characters (sliding window)
+
+Question:
+Given a string s, find the length of the longest substring without repeating characters.
+
+Input: "abcabcbb" → Output: 3 ("abc")
+
+Input: "bbbbb" → Output: 1 ("b")
+
+Input: "pwwkew" → Output: 3 ("wke")
+
+Use sliding window + HashMap / int array.
+
+Concepts revised:
+
+Sliding window pattern (left, right pointers)
+
+Using HashMap<Character, Integer> or int[256] to store last index or count
+
+Math.max()
+
+charAt(), length()
+
+5️⃣ Implement strStr() / Index of First Occurrence (substring search)
+
+Question:
+Implement a function int strStr(String haystack, String needle) that returns the index of the first occurrence of needle in haystack.
+Return -1 if needle is not part of haystack.
+Return 0 if needle is empty.
+
+Input: haystack = "hello", needle = "ll" → Output: 2
+
+Input: haystack = "aaaaa", needle = "bba" → Output: -1
+
+First, solve with a simple brute force:
+
+Outer loop → starting index
+
+Inner loop → compare characters
+
+Then, if you want, later you can explore efficient algorithms (KMP etc.).
+
+Concepts revised:
+
+substring(beginIndex, endIndex)
+
+equals()
+
+Edge cases: empty string, needle longer than haystack
+
+Nested loops with break and continue
