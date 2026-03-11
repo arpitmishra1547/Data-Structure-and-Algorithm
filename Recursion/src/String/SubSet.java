@@ -14,17 +14,19 @@ public class SubSet {
     }
 
     static List<List<Integer>> subset(int[] arr) {
-        List<List<Integer>> outer = new ArrayList<>();
-        outer.add(new ArrayList<>());
-        for (int num : arr) {
-            int n = outer.size();
-            for (int i = 0; i < n; i++) {
-                List<Integer> internal = new ArrayList<>(outer.get(i));
-                internal.add(num);
-                outer.add(internal);
+
+        List<List<Integer>> outer = new ArrayList<>();   // list that will store all subsets
+        outer.add(new ArrayList<>());                    // add empty subset [] (power set always starts with it)
+        for (int num : arr) {                            // iterate through each number in the input array
+            int n = outer.size();                        // store current number of subsets before adding new ones
+            for (int i = 0; i < n; i++) {                 // iterate only over existing subsets
+                List<Integer> internal = new ArrayList<>(outer.get(i)); // copy the current subset
+                internal.add(num);                       // add current element to the copied subset
+                outer.add(internal);                     // add this new subset to the outer list
             }
         }
-        return outer;
+
+        return outer;                                    // return all generated subsets
     }
 
     static List<List<Integer>> subsetDuplicate(int[] arr) {
