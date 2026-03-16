@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Dice {
     public static void main(String[] args) {
         dice("", 4);
-        System.out.println(diceRet("", 4));
+//        System.out.println(diceRet("", 4));
 
     }
 

@@ -6,11 +6,13 @@ import java.util.List;
 
 public class SubSet {
     public static void main(String[] args) {
+
         int[] arr = {1, 2, 2};
-        List<List<Integer>> ans = subset(arr);
-        for (List<Integer> list : ans) {
-            System.out.println(list);
-        }
+        subset(arr, 0, new ArrayList<>());
+//        List<List<Integer>> ans = subset(arr);
+//        for (List<Integer> list : ans) {
+//            System.out.println(list);
+//        }
     }
 
     static List<List<Integer>> subset(int[] arr) {
@@ -25,7 +27,6 @@ public class SubSet {
                 outer.add(internal);                     // add this new subset to the outer list
             }
         }
-
         return outer;                                    // return all generated subsets
     }
 
@@ -51,5 +52,25 @@ public class SubSet {
         }
         return outer;
 
+    }
+
+
+
+    static void subset(int[] arr, int index, List<Integer> list){
+
+        if(index == arr.length){
+            System.out.println(list);
+            return;
+        }
+
+        // take element
+        list.add(arr[index]);
+        subset(arr, index + 1, list);
+
+        // backtrack
+        list.remove(list.size() - 1);
+
+        // skip element
+        subset(arr, index + 1, list);
     }
 }
