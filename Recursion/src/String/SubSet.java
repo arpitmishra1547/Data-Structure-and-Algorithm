@@ -8,7 +8,12 @@ public class SubSet {
     public static void main(String[] args) {
 
         int[] arr = {1, 2, 2};
-        subset(arr, 0, new ArrayList<>());
+//        subset(arr, 0, new ArrayList<>());
+
+        List<List<Integer>> ans = new ArrayList<>();
+        subset1(arr, 0, new ArrayList<>(), ans);
+        System.out.println(ans);
+
 //        List<List<Integer>> ans = subset(arr);
 //        for (List<Integer> list : ans) {
 //            System.out.println(list);
@@ -61,6 +66,7 @@ public class SubSet {
         if(index == arr.length){
             System.out.println(list);
             return;
+
         }
 
         // take element
@@ -72,5 +78,24 @@ public class SubSet {
 
         // skip element
         subset(arr, index + 1, list);
+    }
+
+
+    static void subset1(int[] arr, int index, List<Integer> list , List<List<Integer>> ans){
+
+        if(index == arr.length){
+            ans.add(new ArrayList<>(list));
+            return;
+        }
+
+        // take element
+        list.add(arr[index]);
+        subset1(arr, index + 1, list,ans);
+
+        // backtrack
+        list.remove(list.size() - 1);
+
+        // skip element
+        subset1(arr, index + 1, list,ans);
     }
 }
