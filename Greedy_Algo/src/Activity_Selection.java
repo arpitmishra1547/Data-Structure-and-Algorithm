@@ -1,4 +1,9 @@
 import java.util.ArrayList;
+/*
+ Problem: Given start[] and end[] of activities (sorted by end time),
+ select the maximum number of non-overlapping activities.
+ Print the count and indices of selected activities.
+*/
 
 public class Activity_Selection {
     public static void main(String[] args) {
