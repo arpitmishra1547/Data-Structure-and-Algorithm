@@ -1,23 +1,9 @@
-//# leetcode45
-public class Jump_Game2 {
+//#leetcode135
+public class Candy {
     public static void main(String[] args) {
-        int[] nums = {2,3,1,1,4};
-        System.out.println(solve(nums,0,0));
+        int [] ratings = {1,0,2};
+        System.out.println(candy(ratings));
     }
-
-    // recursive approach
-    private static int solve(int[] arr, int idx, int count) {
-        int n = arr.length;
-
-        if (idx >= n - 1) return count;
-        int mini = Integer.MAX_VALUE;
-        for (int i = 1; i <= arr[idx]; i++) {
-            mini = Math.min(mini, solve(arr, idx + i, count + 1));
-        }
-        return mini;
-    }
-
-    // optimal approach
     private static int candy(int[] ratings) {
         int sum = 1; // ✅ first child
         int i = 1;
